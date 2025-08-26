@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramentas para o Futuro da Programação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #ffffff;
+            --text-dark: #111827; /* Preto */
+            --text-light: #6B7280;
+            --primary: #4361EE; /* Azul */
+            --primary-light: #E0E7FF;
+            --accent: #F72585; /* Rosa */
+            --accent-light: #FDE7F3;
+            --border-color: #E5E7EB;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        .tab-button.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        .tab-button {
+            background-color: var(--accent-light);
+            color: var(--accent);
+        }
+        .tab-button:not(.active):hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+        .gemini-button {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .gemini-button:hover {
+            background-color: var(--accent-light);
+            color: var(--accent);
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.6)), url('https://placehold.co/1600x900/111827/ffffff?text=DevCode');
+            background-size: cover;
+            background-position: center;
+        }
+        .loader {
+            border: 4px solid var(--accent-light);
+            border-top: 4px solid var(--accent);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .tool-link h4:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        .text-primary {
+            color: var(--primary) !important;
+        }
+        .text-accent {
+            color: var(--accent) !important;
+        }
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+        .bg-accent {
+            background-color: var(--accent) !important;
+        }
+        footer {
+            background: var(--text-dark);
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/90 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-text-dark">Jorginho</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#inicio" class="nav-link pb-1">Início</a>
+                <a href="#ferramentas" class="nav-link pb-1">Ferramentas</a>
+                <a href="#impacto" class="nav-link pb-1">Impacto da IA</a>
+                <a href="#academico" class="nav-link pb-1">Jornada Acadêmica</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#inicio" class="block py-2 text-text-dark hover:text-primary">Início</a>
+            <a href="#ferramentas" class="block py-2 text-text-dark hover:text-primary">Ferramentas</a>
+            <a href="#impacto" class="block py-2 text-text-dark hover:text-primary">Impacto da IA</a>
+            <a href="#academico" class="block py-2 text-text-dark hover:text-primary">Jornada Acadêmica</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero-bg">
+            <div class="container mx-auto px-6 py-24 md:py-40 text-center text-white">
+                <h2 class="text-4xl md:text-6xl font-bold mb-4 fade-in">Ferramentas para o Futuro da Programação</h2>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto fade-in" style="animation-delay: 0.2s;">
+                    Explore as tecnologias que estão moldando o desenvolvimento de software moderno e descubra os caminhos acadêmicos para construir uma carreira de sucesso no Brasil.
+                </p>
+            </div>
+        </section>
+
+        <section id="ferramentas" class="py-20" style="background: var(--bg-main);">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold">O Novo Arsenal do Desenvolvedor</h3>
+                    <p class="text-text-light mt-2 max-w-2xl mx-auto">A programação moderna é potencializada por um ecossistema de ferramentas inteligentes. Navegue pelas categorias para conhecer as tecnologias que otimizam desde a escrita do código até a sua implantação.</p>
+                </div>
+                
+                <div class="flex justify-center mb-8 space-x-2 md:space-x-4">
+                    <button class="tab-button active text-sm md:text-base font-medium py-2 px-4 rounded-full transition-colors duration-300" data-tab="ia">Assistentes de IA</button>
+                    <button class="tab-button text-sm md:text-base font-medium py-2 px-4 rounded-full transition-colors duration-300" data-tab="ides">IDEs Avançadas</button>
+                    <button class="tab-button text-sm md:text-base font-medium py-2 px-4 rounded-full transition-colors duration-300" data-tab="devops">DevOps & Infra</button>
+                </div>
+
+                <div id="tab-content" class="max-w-4xl mx-auto">
+                    <div class="tab-pane active fade-in" id="ia">
+                        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-border-color">
+                            <img src="https://placehold.co/400x300/4361EE/FFFFFF?text=IA" alt="Ilustração de Inteligência Artificial" class="w-full md:w-1/3 h-auto rounded-md object-cover">
+                            <div class="w-full md:w-2/3">
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div>
+                                        <a href="https://aws.amazon.com/codewhisperer/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                                            <h4 class="font-bold text-xl mb-2">Amazon CodeWhisperer</h4>
+                                        </a>
+                                        <p class="text-text-light">Um copiloto de IA que sugere código em tempo real e realiza varreduras de segurança.</p>
+                                    </div>
+                                    <div>
+                                        <a href="https://www.tabnine.com/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                                            <h4 class="font-bold text-xl mb-2">Tabnine</h4>
+                                        </a>
+                                        <p class="text-text-light">Assistente que se adapta ao seu estilo, oferecendo sugestões personalizadas para acelerar o desenvolvimento.</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <button class="gemini-button text-xs" data-gemini-type="tool-senior" data-category="Assistentes de IA">✨ Visão de Sênior</button>
+                                    <button class="gemini-button text-xs" data-gemini-type="tool-path" data-category="Assistentes de IA">✨ Trilha de Aprendizagem</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane hidden fade-in" id="ides">
+                         <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-border-color">
+                            <img src="https://placehold.co/400x300/111827/FFFFFF?text=IDE" alt="Ilustração de Ambiente de Desenvolvimento" class="w-full md:w-1/3 h-auto rounded-md object-cover">
+                            <div class="w-full md:w-2/3">
+                                <a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                                    <h4 class="font-bold text-xl mb-2">IntelliJ IDEA</h4>
+                                </a>
+                                <p class="text-text-light">Muito mais que um editor, é um ambiente robusto com análise estática, refatoração inteligente e depuração avançada para escrever código limpo e funcional.</p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <button class="gemini-button text-xs" data-gemini-type="tool-senior" data-category="IDEs Avançadas">✨ Visão de Sênior</button>
+                                    <button class="gemini-button text-xs" data-gemini-type="tool-path" data-category="IDEs Avançadas">✨ Trilha de Aprendizagem</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane hidden fade-in" id="devops">
+                        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-border-color">
+                            <img src="https://placehold.co/400x300/F72585/FFFFFF?text=DevOps" alt="Ilustração de DevOps" class="w-full md:w-1/3 h-auto rounded-md object-cover">
+                            <div class="w-full md:w-2/3">
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div>
+                                        <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                                            <h4 class="font-bold text-xl mb-2">Docker</h4>
+                                        </a>
+                                        <p class="text-text-light">Plataforma que empacota aplicações em contêineres, garantindo que o software funcione de maneira uniforme em qualquer ambiente.</p>
+                                    </div>
+                                    <div>
+                                        <a href="https://kubernetes.io/" target="_blank" rel="noopener noreferrer" class="tool-link">
+                                            <h4 class="font-bold text-xl mb-2">Kubernetes</h4>
+                                        </a>
+                                        <p class="text-text-light">Sistema que automatiza a implantação, o escalonamento e a gestão de aplicações em contêineres.</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <button class="gemini-button text-xs" data-gemini-type="tool-senior" data-category="DevOps e Infraestrutura">✨ Visão de Sênior</button>
+                                    <button class="gemini-button text-xs" data-gemini-type="tool-path" data-category="DevOps e Infraestrutura">✨ Trilha de Aprendizagem</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impacto" class="py-20" style="background: var(--bg-main);">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold">O Impacto da Inteligência Artificial</h3>
+                    <p class="text-text-light mt-2 max-w-2xl mx-auto">A IA transforma a computação com avanços e desafios, levantando questões sobre segurança, ética e o futuro do trabalho na área de tecnologia.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300 border border-border-color">
+                        <h4 class="text-2xl font-bold text-primary mb-4 flex items-center">Impactos Positivos</h4>
+                        <ul class="space-y-4 text-text-light">
+                            <li class="flex flex-col"><span class="font-bold text-text-dark">Aceleração da Pesquisa</span> <span>Análise de grandes volumes de dados em segundos.</span> <button class="gemini-button text-xs mt-2 self-start" data-gemini-type="impact-example" data-context="Aceleração da Pesquisa pela IA">✨ Me dê um exemplo prático</button></li>
+                            <li class="flex flex-col"><span class="font-bold text-text-dark">Automatização Inteligente</span> <span>Ferramentas que geram código e detectam erros.</span> <button class="gemini-button text-xs mt-2 self-start" data-gemini-type="impact-example" data-context="Automatização Inteligente com IA na programação">✨ Me dê um exemplo prático</button></li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300 border border-border-color">
+                        <h4 class="text-2xl font-bold text-accent mb-4 flex items-center">Impactos Negativos</h4>
+                        <ul class="space-y-4 text-text-light">
+                            <li class="flex flex-col"><span class="font-bold text-text-dark">Riscos de Segurança</span> <span>Modelos de IA vulneráveis podem ser explorados para ciberataques.</span> <button class="gemini-button text-xs mt-2 self-start" data-gemini-type="impact-example" data-context="Riscos de Segurança com IA">✨ Me dê um exemplo prático</button></li>
+                             <li class="flex flex-col"><span class="font-bold text-text-dark">Viés e Falta de Transparência</span> <span>Algoritmos que podem perpetuar preconceitos.</span> <button class="gemini-button text-xs mt-2 self-start" data-gemini-type="impact-example" data-context="Viés e Falta de Transparência em algoritmos de IA">✨ Me dê um exemplo prático</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="academico" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold">Jornada Acadêmica em Ciência da Computação</h3>
+                    <p class="text-text-light mt-2 max-w-2xl mx-auto">Explore uma seleção de excelentes universidades públicas e particulares no Brasil para iniciar sua carreira em tecnologia.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <div>
+                        <h4 class="text-2xl font-bold text-primary mb-6 text-center">Universidades Públicas</h4>
+                        <div id="lista-publicas" class="space-y-4">
+                            <!-- Conteúdo gerado via JS -->
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-accent mb-6 text-center">Universidades Particulares</h4>
+                        <div id="lista-particulares" class="space-y-4">
+                            <!-- Conteúdo gerado via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-text-dark text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Guizera. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Uma visão sobre o futuro da programação no Brasil.</p>
+        </div>
+    </footer>
+
+    <!-- Modal para Resposta do Gemini -->
+    <div id="gemini-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 id="modal-title" class="text-xl font-bold">✨ Resposta da IA</h3>
+                <button id="modal-close-button" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div id="modal-content" class="p-6 overflow-y-auto">
+                <div id="loader" class="flex justify-center items-center h-40">
+                    <div class="loader"></div>
+                </div>
+                <div id="response-text" class="text-text-light whitespace-pre-wrap"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const navLinks = document.querySelectorAll('header a[href^="#"]');
+            const sections = document.querySelectorAll('main section');
+            
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 70) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    button.classList.add('active');
+                    tabPanes.forEach(pane => {
+                        pane.classList.toggle('hidden', pane.id !== tabId);
+                    });
+                });
+            });
+
+            const universidades = {
+                publicas: [
+                    { nome: 'Universidade Estadual Paulista (UNESP)', logo: 'https://logodownload.org/wp-content/uploads/2017/05/unesp-logo-3.png' },
+                    { nome: 'Universidade de São Paulo (USP)', logo: 'https://logodownload.org/wp-content/uploads/2017/05/usp-logo-3.png' },
+                    { nome: 'Universidade Estadual de Campinas (UNICAMP)', logo: 'https://logodownload.org/wp-content/uploads/2017/05/unicamp-logo-2.png' },
+                    { nome: 'Universidade Federal de São Carlos (UFSCar)', logo: 'https://logodownload.org/wp-content/uploads/2019/11/ufscar-logo.png'},
+                    { nome: 'Instituto Tecnológico de Aeronáutica (ITA)', logo: 'https://logodownload.org/wp-content/uploads/2019/02/ita-logo.png' },
+                    { nome: 'Universidade Federal de Minas Gerais (UFMG)', logo: 'https://logodownload.org/wp-content/uploads/2017/11/ufmg-logo-1.png' },
+                    { nome: 'Universidade Federal de Pernambuco (UFPE)', logo: 'https://logodownload.org/wp-content/uploads/2019/11/ufpe-logo.png' },
+                    { nome: 'Universidade de Brasília (UnB)', logo: 'https://logodownload.org/wp-content/uploads/2019/11/unb-logo.png' }
+                ],
+                particulares: [
+                    { nome: 'Pontifícia Universidade Católica de São Paulo (PUC-SP)', logo: 'https://logodownload.org/wp-content/uploads/2019/12/puc-sp-logo.png'},
+                    { nome: 'Universidade Presbiteriana Mackenzie', logo: 'https://logodownload.org/wp-content/uploads/2019/12/mackenzie-logo.png'},
+                    { nome: 'Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)', logo: 'https://logodownload.org/wp-content/uploads/2019/12/puc-rio-logo.png' },
+                    { nome: 'Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)', logo: 'https://logodownload.org/wp-content/uploads/2019/12/pucrs-logo.png' },
+                    { nome: 'FIAP - Centro Universitário', logo: 'https://logodownload.org/wp-content/uploads/2021/04/fiap-logo.png' },
+                    { nome: 'Instituto Mauá de Tecnologia (IMT)', logo: 'https://www.maua.br/img/logo-maua-novo.png' }
+                ]
+            };
+
+            const listaPublicas = document.getElementById('lista-publicas');
+            const listaParticulares = document.getElementById('lista-particulares');
+
+            function renderUniversidades(lista, container) {
+                let html = '';
+                lista.forEach(uni => {
+                    html += `
+                        <div class="flex items-center justify-between gap-3 bg-white p-2 rounded-lg border border-border-color shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <img src="${uni.logo}" alt="Logo ${uni.nome}" class="h-10 w-10 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/50x50/ccc/FFFFFF?text=Logo';">
+                                <span class="text-text-light text-sm">${uni.nome}</span>
+                            </div>
+                            <button class="gemini-button text-xs" data-gemini-type="career-plan" data-university="${uni.nome}">✨ Plano</button>
+                        </div>
+                    `;
+                });
+                container.innerHTML = html;
+            }
+
+            renderUniversidades(universidades.publicas, listaPublicas);
+            renderUniversidades(universidades.particulares, listaParticulares);
+            
+            const modal = document.getElementById('gemini-modal');
+            const modalCloseButton = document.getElementById('modal-close-button');
+            const modalTitle = document.getElementById('modal-title');
+            const loader = document.getElementById('loader');
+            const responseText = document.getElementById('response-text');
+
+            modalCloseButton.addEventListener('click', () => modal.classList.add('hidden'));
+            modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.add('hidden'); });
+
+            async function callGemini(prompt, retries = 3, delay = 1000) {
+                loader.style.display = 'flex';
+                responseText.textContent = '';
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+
+                try {
+                    const apiKey = "";
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                    const payload = { contents: [{ parts: [{ text: prompt }] }] };
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const result = await response.json();
+                    
+                    loader.style.display = 'none';
+                    if (result.candidates && result.candidates.length > 0) {
+                        responseText.textContent = result.candidates[0].content.parts[0].text;
+                    } else {
+                        responseText.textContent = 'Não foi possível obter uma resposta da IA. Tente novamente.';
+                    }
+                } catch (error) {
+                    if (retries > 0) {
+                        await new Promise(res => setTimeout(res, delay));
+                        return callGemini(prompt, retries - 1, delay * 2);
+                    } else {
+                        loader.style.display = 'none';
+                        responseText.textContent = `Ocorreu um erro ao chamar a IA: ${error.message}. Por favor, tente mais tarde.`;
+                    }
+                }
+            }
+
+            document.body.addEventListener('click', function(event) {
+                if (event.target.matches('.gemini-button')) {
+                    const type = event.target.dataset.geminiType;
+                    let prompt = '';
+                    
+                    if (type === 'career-plan') {
+                        const university = event.target.dataset.university;
+                        modalTitle.textContent = `✨ Plano de Carreira | ${university}`;
+                        prompt = `Aja como um especialista em carreiras de tecnologia no Brasil. Crie um plano de carreira de 5 anos para um recém-graduado em Ciência da Computação pela universidade "${university}". Detalhe os primeiros passos, possíveis cargos (Júnior, Pleno), habilidades essenciais a serem desenvolvidas (técnicas e comportamentais), e cite 3 empresas potenciais para se trabalhar no Brasil. Formate a resposta de forma clara e motivadora.`;
+                    } else if (type === 'tool-senior') {
+                        const category = event.target.dataset.category;
+                        modalTitle.textContent = `✨ Visão de Sênior | ${category}`;
+                        prompt = `Aja como um desenvolvedor sênior experiente. Explique para um programador júnior a importância da categoria de ferramentas "${category}" no dia a dia de uma equipe de desenvolvimento de software. Foque em casos de uso práticos, como essas ferramentas aumentam a produtividade e a qualidade do código, e por que dominá-las é um diferencial no mercado de trabalho. Use uma linguagem clara e direta.`;
+                    } else if (type === 'tool-path') {
+                        const category = event.target.dataset.category;
+                        modalTitle.textContent = `✨ Trilha de Aprendizagem | ${category}`;
+                        prompt = `Aja como um mentor de tecnologia. Crie uma trilha de aprendizagem para um estudante que quer se especializar em "${category}". Liste os passos principais, as tecnologias a serem aprendidas em cada passo, e sugira um mini-projeto prático para cada etapa. Formate como uma lista numerada e bem organizada.`;
+                    } else if (type === 'impact-example') {
+                        const context = event.target.dataset.context;
+                        modalTitle.textContent = `✨ Exemplo Prático | ${context}`;
+                        prompt = `Aja como um especialista em tecnologia. Dê um exemplo prático e real sobre "${context}". Descreva o cenário, a tecnologia de IA envolvida e o resultado alcançado. Explique de forma simples para um estudante.`;
+                    }
+                    
+                    if(prompt) callGemini(prompt);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
